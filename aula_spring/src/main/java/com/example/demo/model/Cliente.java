@@ -1,2 +1,6 @@
-package com.example.demo.model;public class Cliente {
+package com.example.demo.model;
+
+public class Cliente {
+
+
 }

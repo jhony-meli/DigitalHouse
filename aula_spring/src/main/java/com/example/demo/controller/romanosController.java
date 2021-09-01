@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class romanosController {
 
-    public int [] valores = {10, 5, 1};
-    public String [] letras = {"X", "V", "I"};
+    public int [] valores = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    public String [] letras = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
     //Exemplo de chamada -> http://localhost:8080/convNumbers/23
     @GetMapping("convNumbers/{number}")
