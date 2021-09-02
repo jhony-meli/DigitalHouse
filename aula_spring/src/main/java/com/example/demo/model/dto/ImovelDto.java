@@ -1,5 +1,6 @@
 package com.example.demo.model.dto;
 
+import com.example.demo.model.entity.Imovel;
 import lombok.Data;
 
 @Data
@@ -10,10 +11,12 @@ public class ImovelDto {
     private double tamanho;
     private int qtdQuartos;
 
-    public ImovelDto() {
-        this.nome = "casa";
-        this.endereco = "Rua da felicidade 317";
-        this.tamanho = 40.0;
-        this.qtdQuartos = 2;
-    }
+
+//    public ImovelDto() {
+//        Imovel imovel = new Imovel();
+//        this.nome = imovel.getNome();
+//        this.endereco = imovel.getEndereco();
+//        this.tamanho = imovel.getTamanho();
+//        this.qtdQuartos = imovel.getQtdQuartos();
+//    }
 }
