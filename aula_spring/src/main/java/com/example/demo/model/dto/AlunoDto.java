@@ -1,17 +1,17 @@
-package com.example.demo.model;
+package com.example.demo.model.dto;
 
 import java.time.LocalDate;
 
-public class Aluno {
+public class AlunoDto {
 
     private String nome;
     private String sexo;
     private LocalDate dataNascimento;
 
-    public Aluno() {
+    public AlunoDto() {
     }
 
-    public Aluno(String nome, String sexo, LocalDate dataNascimento) {
+    public AlunoDto(String nome, String sexo, LocalDate dataNascimento) {
         this.nome = nome;
         this.sexo = sexo;
         this.dataNascimento = dataNascimento;
