@@ -33,8 +33,8 @@ public class ImovelController {
 
     @GetMapping("/cvi")
     public double calcularValorImovel(){
-        ImovelDto imovelDto = new ImovelDto();
-        imovelDto.setTamanho(imovelService.getTamanho());
+        ImovelDto imovelDto;
+        imovelDto = imovelService.imovelConvert();
         return imovelDto.getTamanho()*800;
     }
 
