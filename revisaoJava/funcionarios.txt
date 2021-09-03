@@ -1,0 +1,5 @@
+Funcionario{nome='Jhony', sexo='M', salario=1000.01}
+EDEMIR
+RAFAEL
+RODRIGO gratificacao: 6500.0
+ANA comissao: 500.0 remuneracao: 5500.0
