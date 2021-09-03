@@ -26,8 +26,8 @@ public class ImovelController {
 
     @GetMapping("/rti")
     public double retornarTamanhoImovel(){
-        ImovelDto imovelDto = new ImovelDto();
-        imovelDto.setTamanho(imovelService.getTamanho());
+        ImovelDto imovelDto;
+        imovelDto = imovelService.imovelConvert();
         return imovelDto.getTamanho();
     }
 
