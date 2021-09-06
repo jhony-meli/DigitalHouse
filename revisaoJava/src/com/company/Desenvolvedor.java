@@ -2,6 +2,7 @@ package com.company;
 
 public class Desenvolvedor extends Funcionario{
 
+    // ajustar
     private String senha;
 
     public Desenvolvedor(String nome, String sexo, double salario, String senha) {

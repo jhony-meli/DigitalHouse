@@ -3,3 +3,4 @@ EDEMIR
 RAFAEL
 RODRIGO gratificacao: 6500.0
 ANA comissao: 500.0 remuneracao: 5500.0
+Desenvolvedor{senha='12345', nome='Jhony', sexo='M', salario=10000.0}

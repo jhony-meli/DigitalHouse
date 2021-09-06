@@ -17,4 +17,7 @@ public class Gerente extends Funcionario{
     public void setGratificacao(double gratificacao) {
         this.gratificacao = gratificacao;
     }
+
+    @Override
+    public double getSalario(){ return super.getSalario() + gratificacao;}
 }

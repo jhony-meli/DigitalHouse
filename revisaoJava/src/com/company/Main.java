@@ -67,6 +67,23 @@ public class Main {
 
         bw.append(jhony.toString());
 
+        System.out.println("-----------------------------Parte 05------------------------------------");
+
+        Funcionario[] array = new Funcionario[3];
+        array[0] = funcionario1;
+        array[1] = funcionario2;
+        array[2] = funcionario3;
+
+        ClaculadorFolha folha = new ClaculadorFolha();
+        double total = folha.calcula(array);
+
+        System.out.println(total);
+
+        Cliente cliente = new Cliente("cliente@cliente","123");
+        boolean autentica = cliente.autentica("cliente@cliente", "123");
+
+        System.out.println(" Status autenticacao : " +autentica);
+
         bw.close();
 
 
