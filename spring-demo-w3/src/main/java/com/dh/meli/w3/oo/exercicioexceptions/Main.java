@@ -2,10 +2,18 @@ package com.dh.meli.w3.oo.exercicioexceptions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
+
+//		Scanner teclado = new Scanner(System.in);
+//		System.out.println("Digite seu nome: ");
+//		String nomeDigitado = teclado.nextLine();
+//		System.out.println("Digite sua idade: ");
+//		String idadeDigitada = teclado.nextLine();
+//		teclado.close();
 
 		List<Cliente> clientes = new ArrayList<>();
 		Cliente cliente1 = new Cliente("Jhony", 20);
