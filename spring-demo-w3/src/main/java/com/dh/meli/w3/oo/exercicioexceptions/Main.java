@@ -28,9 +28,16 @@ public class Main {
 			if (cliente.getIdade() >17){
 
 			} else {
-				throw new IdadeException("Voce e menor de idade");
+				throw new IdadeException(String"Vc e menor de idade");
 			}
 		}
 
+	}
+
+	private static class IdadeException extends Throwable {
+		public String IdadeException(String mensagem) {
+			mensagem = "Vc e menor de idade";
+			return mensagem;
+		}
 	}
 }
