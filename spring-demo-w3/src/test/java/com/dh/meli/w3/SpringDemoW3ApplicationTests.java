@@ -9,9 +9,5 @@ class SpringDemoW3ApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-	@Test
-	void validaIdade(){
-		System.out.println("teste");
-	}
 
 }
