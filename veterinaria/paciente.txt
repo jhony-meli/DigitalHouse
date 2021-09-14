@@ -1,0 +1,3 @@
+0;rex;cachorro
+1;toddy;gato
+2;joao;rato
