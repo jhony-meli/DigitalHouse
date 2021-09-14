@@ -28,8 +28,8 @@ public class PacienteService {
             , String nome, Proprietario proprietario, String tipoAnimal) {
         paciente = new Paciente(listaPaciente.size(), especie, raca, cor, dataNascimento, nome, proprietario, tipoAnimal);
         PacienteDAO pacienteDAO = new PacienteDAO("paciente.txt");
-        //pacienteDAO.salva(paciente);
-        //pacienteDAO.fechar();
+        pacienteDAO.salva(paciente);
+        pacienteDAO.fechar();
     }
 
     public void listarPacienteProprietarios(List<Paciente> listaPaciente) {
@@ -40,15 +40,19 @@ public class PacienteService {
             listaPaciente.add(paciente);
     }
 
-    public void carregarPacienteArquivo() {
+    public List<Paciente> carregarPacienteArquivo() {
         PacienteDAO pacienteDAO = new PacienteDAO("paciente.txt");
-        List<String> lista = pacienteDAO.carregarArquivo();
-        System.out.println(lista);
+        List<String[]> lista = pacienteDAO.carregarArquivo();
 
-        String paciente = null;
-        for (String s:lista) {
-            paciente = ""+s.toString();
-            System.out.println(paciente);
+        List<Paciente> listaPaciente = new ArrayList<>();
+        for (String[] s:lista) {
+            Paciente paciente = new Paciente();
+            Integer id = Integer.valueOf(s[0]);
+            paciente.setId(id);
+            paciente.setNome(s[1]);
+            paciente.setEspecie(s[2]);
+            listaPaciente.add(paciente);
         }
+        return listaPaciente;
     }
 }

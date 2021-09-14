@@ -55,23 +55,16 @@ public class ArquivoUtil {
 
     }
 
-    public List<String> retornaRegistros() throws IOException {
-        List<String> registros = new ArrayList<String>();
+    public List<String[]> retornaRegistros() throws IOException {
+        List<String[]> registros = new ArrayList<>();
         while(true) {
             String linha = br.readLine();
-            Paciente paciente = new Paciente();
-            String[] campos = linha.split(";");
-            System.out.println(campos);
-            Integer id = Integer.valueOf(campos[0]);
-            paciente.setId(id);
-            paciente.setNome(campos[1]);
-            paciente.setEspecie(campos[2]);
             if(linha==null) {
                 break;
             }
-            registros.add(linha);
+            String[] campos = linha.split(";");
+            registros.add(campos);
         }
         return registros;
     }
-
 }

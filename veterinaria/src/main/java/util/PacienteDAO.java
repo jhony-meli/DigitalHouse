@@ -47,8 +47,8 @@ public class PacienteDAO implements Persistivel<Paciente> {
         arquivoUtil.fechaArquivo();
     }
 
-
-    public List<String> carregarArquivo(){
+    @Override
+    public List<String[]> carregarArquivo(){
 
         try {
             return arquivoUtil.retornaRegistros();

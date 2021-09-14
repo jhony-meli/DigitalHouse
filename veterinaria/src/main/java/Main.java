@@ -1,4 +1,7 @@
 import model.entity.Consulta;
+import model.entity.Medico;
+import model.entity.Paciente;
+import model.entity.Proprietario;
 import model.service.ConsultaService;
 import model.service.MedicoService;
 import model.service.PacienteService;
@@ -87,9 +90,24 @@ public class Main {
         List<Consulta> listarConsultasPorDia = consultaService.listarConsultasPorDia(dia);
         listarConsultasPorDia.forEach(System.out::println);
 
-        //Ler arquivos
-        System.out.println("--------------LerArquivos--------------");
-        pacienteService.carregarPacienteArquivo();
-        //System.out.println(pacienteService.getPaciente().toString());
+        //Ler arquivos paciente
+        System.out.println("--------------LerArquivosPaciente--------------");
+        List<Paciente> pacientes = pacienteService.carregarPacienteArquivo();
+        pacientes.forEach(System.out::println);
+
+        //Ler arquivos medico
+        System.out.println("--------------LerArquivosMedico--------------");
+        List<Medico> medicos = medicoService.carregarMedicoArquivo();
+        medicos.forEach(System.out::println);
+
+        //Ler arquivos proprietario
+        System.out.println("--------------LerArquivosProprietario--------------");
+        List<Proprietario> proprietarios = proprietarioService.carregarProprietarioArquivo();
+        proprietarios.forEach(System.out::println);
+
+        //Ler arquivos consulta
+        System.out.println("--------------LerArquivosConsulta--------------");
+        List<Consulta> consultas = consultaService.carregarConsultaArquivo();
+        consultas.forEach(System.out::println);
     }
 }
