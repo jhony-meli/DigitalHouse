@@ -28,9 +28,9 @@ public class Agenda {
     public void exibirTodaAgenda(){
         System.out.println(listaPessoa);
     }
+
     public void exibirPessoa(Pessoa pessoa){
         System.out.println(pessoa.toString());
     }
-
 
 }
