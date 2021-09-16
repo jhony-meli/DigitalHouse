@@ -20,7 +20,6 @@ public class Main {
         Pessoa pessoa9 = new Pessoa("Katia", "Rua mmmm, 9", "9999999999",99,1.90);
         Pessoa pessoa10 = new Pessoa("Manu", "Rua zzz, 19", "1010101010",10,1.10);
 
-
         Agenda agenda = new Agenda();
         agenda.armazenarPessoa(pessoa1);
         agenda.armazenarPessoa(pessoa2);
@@ -49,7 +48,7 @@ public class Main {
         agenda.exibirTodaAgenda();
 
         System.out.println("---Apresente uma pessoa especifico---");
-        agenda.exibirPessoa(pessoa1);
+        agenda.exibirPessoa(pessoa9);
 
     }
 }
