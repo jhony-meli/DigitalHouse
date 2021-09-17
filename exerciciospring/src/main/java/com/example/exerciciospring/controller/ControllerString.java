@@ -15,5 +15,18 @@ public class ControllerString {
         return "A palavra invertida fica da seguinte forma " + palavraInvertida;
     }
 
+    String palavra;
+    @GetMapping("/palindromo/{nome}")
+    public String palindromo(@PathVariable String nome){
+        nome = nome.toUpperCase(Locale.ROOT).replaceAll("\\s+", "");
+        palavra = new StringBuilder(nome.toUpperCase(Locale.ROOT)).reverse().toString();
+        palavra = palavra.toUpperCase(Locale.ROOT).replaceAll("\\s+", "");
+        if (nome.equals(palavra)){
+            return "E um palindromo a frase : " + palavra;
+        } else {
+            return "Nao e um palindromo a frase : " + palavra;
+        }
+    }
+
 
 }
