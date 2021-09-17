@@ -1,8 +1,10 @@
 package com.example.exerciciospring.controller;
 
+import com.example.exerciciospring.entity.Produto;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Locale;
+import java.sql.ClientInfoStatus;
+import java.util.*;
 
 @RestController
 @RequestMapping("/string")
@@ -26,6 +28,23 @@ public class ControllerString {
         } else {
             return "Nao e um palindromo a frase : " + palavra;
         }
+    }
+
+    @GetMapping("/produtos")
+    public List<Produto> produtos() {
+        Produto produto1 = new Produto("Uva", 10.100);
+        Produto produto2 = new Produto("Laranja", 200.500);
+        Produto produto3 = new Produto("Melancia", 100.100);
+
+        List<Produto> produtos = new ArrayList<>();
+
+        produtos.add(produto1);
+        produtos.add(produto2);
+        produtos.add(produto3);
+
+        Collections.sort(produtos, Comparator.comparing(Produto::getPeso));
+        return produtos;
+
     }
 
 
