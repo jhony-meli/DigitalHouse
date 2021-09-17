@@ -17,6 +17,13 @@ public class Cliente {
         this.email = email;
         this.telefone = telefone;
     }
+    public boolean nomeValido(String nome){
+        if (nome.length() > 2 && nome.length() < 51){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public void criarCliente(Cliente cliente){
 

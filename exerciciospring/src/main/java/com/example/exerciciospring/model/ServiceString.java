@@ -1,8 +1,8 @@
-package com.company.exercicio2;
+package com.example.exerciciospring.model;
 
 import java.util.Locale;
 
-public class ManipulaStrings {
+public class ServiceString {
 
     String palavraInvertida;
 
@@ -21,4 +21,5 @@ public class ManipulaStrings {
             System.out.println("Nao e um palindromo a frase : " + palavraInvertida + "\n");
         }
     }
+
 }
