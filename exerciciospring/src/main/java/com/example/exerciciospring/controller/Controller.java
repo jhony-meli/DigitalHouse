@@ -2,13 +2,11 @@ package com.example.exerciciospring.controller;
 
 import com.example.exerciciospring.entity.Produto;
 import org.springframework.web.bind.annotation.*;
-
-import java.sql.ClientInfoStatus;
 import java.util.*;
 
 @RestController
 @RequestMapping("/string")
-public class ControllerString {
+public class Controller {
 
     String palavraInvertida;
     @GetMapping("/invert/{nome}")
@@ -44,8 +42,18 @@ public class ControllerString {
 
         Collections.sort(produtos, Comparator.comparing(Produto::getPeso));
         return produtos;
-
     }
+
+    // ex /pessoal com nome e sobrenome: /localhost:8090/string/pessoal?nome=jhony&sobrenome=zuim"
+    @GetMapping("/end1")
+    public String end1(String nome, String sobrenome){
+        if (nome.equalsIgnoreCase("jhony") && sobrenome.equalsIgnoreCase("zuim")) {
+            return "Vc e :" + nome + sobrenome;
+        } else {
+            return "Vc nao e o Jhony";
+        }
+    }
+
 
 
 }

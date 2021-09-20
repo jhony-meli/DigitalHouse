@@ -1,8 +1,5 @@
 package com.example.exerciciospring.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Produto {
 
     private String nome;
