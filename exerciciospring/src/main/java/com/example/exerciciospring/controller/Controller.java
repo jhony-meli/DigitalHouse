@@ -43,7 +43,7 @@ public class Controller {
         Collections.sort(produtos, Comparator.comparing(Produto::getPeso));
         return produtos;
     }
-    
+
 
     // ex /pessoal com nome e sobrenome: /localhost:8090/string/pessoal?nome=jhony&sobrenome=zuim"
     @GetMapping("/end1")
