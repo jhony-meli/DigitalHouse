@@ -1,7 +1,7 @@
 package service;
 
 import dao.AnuncioPersistence;
-import entity.Anuncio;
+import entity.Anuncios;
 
 public class AnuncioService {
 
@@ -11,21 +11,23 @@ public class AnuncioService {
         this.anuncioPersistence = anuncioPersistence;
     }
 
-    public void salva(Anuncio anuncio) {
+    public void salva(Anuncios anuncios) {
 
-            Anuncio anuncioExistente = anuncioPersistence.get(anuncio.getTitulo());
+            Anuncios anunciosExistente = anuncioPersistence.get(anuncios.getCodigo());
 
-
-            if(!(anuncioExistente == null)){
-                anuncioExistente.setTitulo(anuncio.getTitulo());
-                anuncioExistente.setCodigo_vendedor(anuncio.getCodigo_vendedor());
-                anuncioExistente.setPreco(anuncio.getPreco());
-                anuncioExistente.setData_anuncio(anuncio.getData_anuncio());
-                anuncioExistente.setNum_vendas(anuncio.getNum_vendas());
-                anuncioPersistence.atualiza(anuncioExistente);
+            if(!(anunciosExistente == null)){
+                anunciosExistente.setTitulo(anuncios.getTitulo());
+                anunciosExistente.setCodigo_vendedor(anuncios.getCodigo_vendedor());
+                anunciosExistente.setPreco(anuncios.getPreco());
+                anunciosExistente.setData_anuncio(anuncios.getData_anuncio());
+                anunciosExistente.setNum_vendas(anuncios.getNum_vendas());
+                anuncioPersistence.atualiza(anunciosExistente);
             } else {
-                anuncioPersistence.insere(anuncio);
+                anuncioPersistence.insere(anuncios);
             }
+    }
 
-        }
+    public Anuncios busca(int id){
+        return anuncioPersistence.get(id);
+    }
 }

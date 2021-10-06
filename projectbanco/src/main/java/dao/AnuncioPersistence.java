@@ -1,56 +1,35 @@
 package dao;
 
-import entity.Anuncio;
-import util.BancoDeDados;
+import entity.Anuncios;
+import util.JPAUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.persistence.EntityManager;
 
 public class AnuncioPersistence {
 
-    private Connection cnx;
+    private EntityManager em;
 
     public AnuncioPersistence() {
-        try {
-            cnx = BancoDeDados.getConection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        em = JPAUtil.getEntityManager();
     }
 
-    public Anuncio get(String titulo) {
-        try {
-            PreparedStatement ps = cnx.prepareStatement("select * from anuncios where titulo = ?");
-            ps.setString(1, titulo);
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()) {
-                return new Anuncio(rs.getString(2), rs.getInt(3), rs.getBigDecimal(4), rs.getDate(5), rs.getInt(6));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public Anuncios get(int id) {
+        return em.find(Anuncios.class, id);
     }
 
-    public void atualiza(Anuncio anuncioExistente) {
+    public void atualiza(Anuncios anunciosExistente) {
+        em.getTransaction().begin();
+        Anuncios anuncioParaSerAtualizada = em.find(Anuncios.class, anunciosExistente.getCodigo());
+        em.getTransaction().commit();
     }
 
-    public void insere(Anuncio anuncio) {
-
+    public void insere(Anuncios anuncios) {
         try {
-            Connection cnx = BancoDeDados.getConection();
-            PreparedStatement ps = cnx.prepareStatement("insert into anuncios (titulo, codigo_vendedor, preco, data_anuncio, num_vendas)"
-                    + " values (?,?,?,?,?)");
-            ps.setString(1, anuncio.getTitulo());
-            ps.setInt(2, anuncio.getCodigo_vendedor());
-            ps.setBigDecimal(3, anuncio.getPreco());
-            ps.setDate(4, anuncio.getData_anuncio());
-            ps.setInt(5, anuncio.getNum_vendas());
-            ps.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            em.getTransaction().begin();
+            em.persist(anuncios);
+            em.getTransaction().commit();
+        } catch (RuntimeException e) {
+            em.getTransaction().rollback();
         }
     }
 }

@@ -1,10 +1,15 @@
 package entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-public class Anuncio {
+@Entity
+public class Anuncios {
 
+    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY) //estamos informando ao RDBMS que o id será gerado automaticamente
     private int codigo;
     private String titulo;
     private int codigo_vendedor;
@@ -12,10 +17,19 @@ public class Anuncio {
     private Date data_anuncio;
     private int num_vendas;
 
-    public Anuncio() {
+    public Anuncios() {
     }
 
-    public Anuncio(String titulo, int codigo_vendedor, BigDecimal preco, java.sql.Date data_anuncio, int num_vendas) {
+    public Anuncios(String titulo, int codigo_vendedor, BigDecimal preco, java.sql.Date data_anuncio, int num_vendas) {
+        this.titulo = titulo;
+        this.codigo_vendedor = codigo_vendedor;
+        this.preco = preco;
+        this.data_anuncio = data_anuncio;
+        this.num_vendas = num_vendas;
+    }
+
+    public Anuncios(int codigo, String titulo, int codigo_vendedor, BigDecimal preco, Date data_anuncio, int num_vendas) {
+        this.codigo = codigo;
         this.titulo = titulo;
         this.codigo_vendedor = codigo_vendedor;
         this.preco = preco;
