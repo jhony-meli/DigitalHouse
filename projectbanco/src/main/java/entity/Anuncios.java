@@ -1,15 +1,15 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
+//@Table(name = "anuncios")
 public class Anuncios {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY) //estamos informando ao RDBMS que o id será gerado automaticamente
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     private String titulo;
     private int codigo_vendedor;
