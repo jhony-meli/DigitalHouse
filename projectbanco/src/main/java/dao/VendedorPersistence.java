@@ -33,4 +33,16 @@ public class VendedorPersistence {
             em.getTransaction().rollback();
         }
     }
+
+    public void deleta(Vendedores vendedores) {
+        Vendedores vendedorParaAtualizar = em.find(Vendedores.class, vendedores.getCodigo());
+        try {
+            em.getTransaction().begin();
+            em.remove(vendedorParaAtualizar);
+            em.getTransaction().commit();
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+            em.getTransaction().rollback();
+        }
+    }
 }

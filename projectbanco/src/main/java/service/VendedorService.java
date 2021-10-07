@@ -27,4 +27,9 @@ public class VendedorService {
     public Vendedores busca(int id) {
         return vendedorPersistence.get(id);
     }
+
+    public void remove(Vendedores vendedores) {
+        Vendedores vendedoresExistentes = vendedorPersistence.get(vendedores.getCodigo());
+        vendedorPersistence.deleta(vendedores);
+    }
 }

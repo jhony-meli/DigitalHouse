@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "vendedores")
 public class Vendedores {
 
     @Id
@@ -12,7 +13,7 @@ public class Vendedores {
     private String cpf;
     private String nome;
     @OneToMany(mappedBy = "vendedores", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Endereco> endereco;
+    private List<Enderecos> enderecos;
 
     public Vendedores() {
     }
@@ -28,6 +29,12 @@ public class Vendedores {
         this.cpf = cpf;
         this.nome = nome;
         //this.endereco = endereco;
+    }
+
+    public Vendedores(String cpf, String nome, List<Enderecos> enderecos) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.enderecos = enderecos;
     }
 
     public int getCodigo() {
@@ -54,11 +61,11 @@ public class Vendedores {
         this.nome = nome;
     }
 
-    public List<Endereco> getEndereco() {
-        return endereco;
+    public List<Enderecos> getEndereco() {
+        return enderecos;
     }
 
-    public void setEndereco(List<Endereco> endereco) {
-        this.endereco = endereco;
+    public void setEndereco(List<Enderecos> enderecos) {
+        this.enderecos = enderecos;
     }
 }

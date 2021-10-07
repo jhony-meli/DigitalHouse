@@ -3,13 +3,14 @@ package entity;
 import javax.persistence.*;
 
 @Entity
-public class Endereco {
+@Table(name = "enderecos")
+public class Enderecos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    //@JoinColumn(name = "vendedores_codigo")
+    @JoinColumn(name = "vendedores_codigo")
     private Vendedores vendedores;
     private String cep;
     private String logradouro;
@@ -18,7 +19,7 @@ public class Endereco {
     private String uf;
     private String cidade;
 
-    public Endereco() {
+    public Enderecos() {
 
     }
 
@@ -34,7 +35,7 @@ public class Endereco {
 //        this.vendedores = vendedores;
 //    }
 
-    public Endereco(String cep, String logradouro, String complemento, int numero, String uf, String cidade, Vendedores vendedores) {
+    public Enderecos(String cep, String logradouro, String complemento, int numero, String uf, String cidade, Vendedores vendedores) {
         super();
         this.cep = cep;
         this.logradouro = logradouro;
@@ -43,6 +44,15 @@ public class Endereco {
         this.uf = uf;
         this.cidade = cidade;
         this.vendedores = vendedores;
+    }
+
+    public Enderecos(String cep, String logradouro, String complemento, int numero, String uf, String cidade) {
+        this.cep = cep;
+        this.logradouro = logradouro;
+        this.complemento = complemento;
+        this.numero = numero;
+        this.uf = uf;
+        this.cidade = cidade;
     }
 
     public Long getId() {

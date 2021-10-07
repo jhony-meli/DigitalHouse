@@ -1,14 +1,8 @@
-import dao.AnuncioPersistence;
 import dao.VendedorPersistence;
-import entity.Anuncios;
-import entity.Endereco;
+import entity.Enderecos;
 import entity.Vendedores;
-import service.AnuncioService;
 import service.VendedorService;
 
-import java.math.BigDecimal;
-import java.sql.Array;
-import java.sql.Date;
 import java.util.Arrays;
 import java.util.List;
 
@@ -29,11 +23,13 @@ public class Main {
 
         VendedorPersistence vendedorPersistence = new VendedorPersistence();
         VendedorService vendedorService = new VendedorService(vendedorPersistence);
-        Vendedores vendedores = new Vendedores(6,"123.987.654-87", "Jhony Maravilhoso");
-        List<Endereco> enderecoJhony = Arrays.asList(new Endereco("09876-588","Rua da Liberdade", "Ap 23", 367, "SP", "Sao Paulo", vendedores));
+        Vendedores vendedores = new Vendedores("123.987.654-87", "Jhony Mau");
+        List<Enderecos> enderecosJhony = Arrays.asList(new Enderecos("09876-588","Rua da Liberdade", "Ap 23", 367, "SP", "Sao Paulo", vendedores));
 
-        vendedores.setEndereco(enderecoJhony);
+        vendedores.setEndereco(enderecosJhony);
 
         vendedorService.salva(vendedores);
+
+        //vendedorService.remove(vendedores);
     }
 }
